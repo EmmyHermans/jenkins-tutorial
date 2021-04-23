@@ -2,6 +2,7 @@ pipeline {
     agent { docker { image 'node:14-alpine' } }
     environment {
         NAME = 'Emmy'
+        SECRET_CREDENTIAL = credentials('secret-credential')
         SECRET_CREDENTIALS = credentials('secret-credentials')
     }
     stages {
@@ -13,7 +14,8 @@ pipeline {
                     echo "Multiline shell steps works too"
                     ls -lah
                 '''
-                echo "You should never print: ${secret_credentials}"
+                echo "You should never print: ${SECRET_CREDENTIAL}"
+                echo "You also never print: ${SECRET_CREDENTIALS}, user: ${SECRET_CREDENTIALS_USR}, password: ${${SECRET_CREDENTIALS_PSW}}"
             }
         }
     }
