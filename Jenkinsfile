@@ -19,4 +19,12 @@ pipeline {
             }
         }
     }
+    post {
+        always {
+            echo 'One way or another, I have finished, I will send an e-mail'
+            mail to: 'emmy.hermans@amis.nl',
+                subject: "Pipeline: ${currentBuild.fullDisplayName} has finished",
+                body: "How nice!"
+        }
+    }
 }
