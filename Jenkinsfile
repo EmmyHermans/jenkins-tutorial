@@ -1,10 +1,13 @@
 pipeline {
     agent { docker { image 'node:14-alpine' } }
+    environment {
+        NAME = 'Emmy'
+    }
     stages {
         stage('build') {
             steps {
                 sh 'npm --version'
-                sh 'echo "Hello World"'
+                echo "Hello World, this is ${NAME}"
                 sh '''
                     echo "Multiline shell steps works too"
                     ls -lah
