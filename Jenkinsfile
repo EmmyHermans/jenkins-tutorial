@@ -35,3 +35,4 @@ pipeline {
             echo 'One way or another, I have finished, I would send an e-mail if I had a smtp server to use'
         }
     }
+}
