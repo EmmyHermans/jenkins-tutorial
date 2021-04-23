@@ -15,7 +15,7 @@ pipeline {
                     ls -lah
                 '''
                 echo "You should never print: ${SECRET_CREDENTIAL}"
-                echo "You also never print: ${SECRET_CREDENTIALS}, user: ${SECRET_CREDENTIALS_USR}, password: ${${SECRET_CREDENTIALS_PSW}}"
+                echo "You also never print: ${SECRET_CREDENTIALS}, user: ${SECRET_CREDENTIALS_USR}, password: ${SECRET_CREDENTIALS_PSW}"
             }
         }
     }
