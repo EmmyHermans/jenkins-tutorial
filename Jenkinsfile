@@ -18,6 +18,17 @@ pipeline {
                 echo "You also never print: ${SECRET_CREDENTIALS}, user: ${SECRET_CREDENTIALS_USR}, password: ${SECRET_CREDENTIALS_PSW}"
             }
         }
+        stage('test') {
+            steps {
+                echo "Testen met ${NAME}"
+            }
+        }
+        stage('deploy') {
+            steps {
+                input 'Do a deploy?'
+                echo "Deploy only after input"
+            }
+        }
     }
     post {
         always {
