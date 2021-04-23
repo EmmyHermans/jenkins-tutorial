@@ -2,6 +2,7 @@ pipeline {
     agent { docker { image 'node:14-alpine' } }
     environment {
         NAME = 'Emmy'
+        SECRET_CREDENTIALS = credentials('secret-credentials')
     }
     stages {
         stage('build') {
@@ -12,6 +13,7 @@ pipeline {
                     echo "Multiline shell steps works too"
                     ls -lah
                 '''
+                echo "You should never print: ${secret_credentials}"
             }
         }
     }
